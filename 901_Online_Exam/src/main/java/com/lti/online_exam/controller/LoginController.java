@@ -27,6 +27,8 @@ public class LoginController {
 		String modelName="loginObj";
 		return new ModelAndView(viewName, modelName, loginObj);
 	}
+	
+	
 	@RequestMapping(value="/checkLogin",method=RequestMethod.POST)
 	public String checkLogin(
 			@ModelAttribute(value="loginObj") @Validated Login loginObj,
@@ -45,7 +47,7 @@ public class LoginController {
 		}else {
 			model.addAttribute("loginObj", new Login());
 			model.addAttribute("msg", "Login Falied Invalid Credentials!");
-			viewName="loginPage";
+			viewName="userPage";
 		}
 		return viewName;		
 	}

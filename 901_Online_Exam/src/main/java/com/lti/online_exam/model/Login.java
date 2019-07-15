@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.lti.online_exam.model;
 
 import java.io.Serializable;
@@ -70,4 +68,3 @@ public class Login implements Serializable{
 	
 	
 }
-

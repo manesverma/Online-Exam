@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="User_Tb")
 public class User {
@@ -27,13 +29,13 @@ public class User {
 	private String userEmail;
 	
 	@Column(name="User_Dob")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date userDob;
 	
 	@Column(name="User_Mobile")
 	private String userMobile;
 	
-	@Column(name="User_Address")
-	@OneToOne(mappedBy="employee", cascade=CascadeType.ALL)
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
 	private Address userAddress;
 	
 	public User() {	
@@ -95,6 +97,13 @@ public class User {
 	public void setUserAddress(Address userAddress) {
 		this.userAddress = userAddress;
 	}
-	 
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userDob=" + userDob
+				+ ", userMobile=" + userMobile + ", userAddress=" + userAddress + "]";
+	}
+	
+	
 	
 }
