@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.lti.spring.exception.ExamException;
 import com.lti.spring.model.Exam;
 
-@Repository
+@Repository 
 public class ExamDao implements IExamDao{
 
 	@PersistenceContext

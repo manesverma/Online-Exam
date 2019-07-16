@@ -7,4 +7,4 @@ import com.lti.spring.model.Exam;
 
 	public interface IExamDao {
 		public List<Exam> getExamList()throws ExamException;
-}
+} 
