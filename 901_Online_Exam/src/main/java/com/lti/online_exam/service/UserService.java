@@ -16,7 +16,6 @@ import com.lti.online_exam.model.User;
 public class UserService implements IUserService {
 	@Autowired
 	private IUserDao userDao;
-	
 
 	@Override
 	@Transactional

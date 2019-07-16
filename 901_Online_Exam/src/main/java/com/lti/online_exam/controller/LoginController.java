@@ -43,13 +43,17 @@ public class LoginController {
 		if(userService.authenticateUser(loginObj)) {
 			model.addAttribute("loginObj", loginObj);
 			model.addAttribute("msg", "Login Successful!");
-			viewName="successPage";
+			viewName="examFrontPage";
 		}else {
 			model.addAttribute("loginObj", new Login());
 			model.addAttribute("msg", "Login Falied Invalid Credentials!");
-			viewName="userPage";
+			viewName="redirect:showLogin";
 		}
 		return viewName;		
+	}
+	@RequestMapping(value="/forgotPassword")
+	public String forgotPasswordPage() {
+		return "forgotPassword";
 	}
 }
 

@@ -13,20 +13,18 @@ public class HomeController {
 	
 	@RequestMapping(value="/")
 	public String showHomePage(Model model) {
-		//return model and view
 		model.addAttribute("msg", "Welcome to Online Examination");
 		model.addAttribute("today",LocalDate.now());
-		//model object associated with name 'msg'
-		return "home";//view name which will be returned to dispacherServlet
+		return "home";
 	}
 	@RequestMapping(value="/home")
 	public String showHomePage1(Model model) {
-		//return model and view
 		model.addAttribute("msg", "Welcome to Online Examination");
 		model.addAttribute("today",LocalDate.now());
-		//model object associated with name 'msg'
-		return "home";//view name which will be returned to dispacherServlet
+		return "home";
 	}
+	
+	
 	@RequestMapping(value="/about")
 	public ModelAndView showAboutPage() {
 		ModelAndView mv = new ModelAndView();
