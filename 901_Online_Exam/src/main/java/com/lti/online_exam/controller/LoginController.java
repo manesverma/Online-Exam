@@ -1,5 +1,7 @@
 package com.lti.online_exam.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,16 +45,19 @@ public class LoginController {
 		if(userService.authenticateUser(loginObj)) {
 			model.addAttribute("loginObj", loginObj);
 			model.addAttribute("msg", "Login Successful!");
-			viewName="examFrontPage";
+			viewName="adminFrontPage";
 		}else {
 			model.addAttribute("loginObj", new Login());
-			model.addAttribute("msg", "Login Falied Invalid Credentials!");
+			model.addAttribute("msg", "Login Failed Invalid Credentials!");
+			model.addAttribute("error", "Login Failed Invalid Credentials!");
 			viewName="redirect:showLogin";
 		}
 		return viewName;		
 	}
-	@RequestMapping(value="/forgotPassword")
-	public String forgotPasswordPage() {
+	@RequestMapping(value="/forgotPassword",method=RequestMethod.POST)
+	public String forgotPasswordPage(Model model) {
+			model.addAttribute("msg", "Here you can reset your password");
+			model.addAttribute("today",LocalDate.now());
 		return "forgotPassword";
 	}
 }

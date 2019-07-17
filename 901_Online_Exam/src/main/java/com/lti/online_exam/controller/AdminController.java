@@ -1,15 +1,26 @@
 package com.lti.online_exam.controller;
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.lti.online_exam.exception.ExamException;
+import com.lti.online_exam.model.Question;
+import com.lti.online_exam.service.IQuestionService;
 
 @Controller 
 @RequestMapping(value="/admin")
 public class AdminController {
 
+	@Autowired
+	private IQuestionService questionService;
+	
 	@RequestMapping(value="/adminFront")
 	public String showAdminPage(Model model) {
 		//return model and view
@@ -43,11 +54,8 @@ public class AdminController {
 		return mv;//view name which will be returned to dispacherServlet
 	}
 
-	//@RequestMapping(value="/addSingleQues")
 	
 	
-	//@RequestMapping(value="/addSingleQuesFile")
-
 	
 	
 }

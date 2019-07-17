@@ -9,8 +9,7 @@
 <h1>Koi ni hum yaad dila denge</h1>
 
 <c:url var="myaction" value="/user/addUser"></c:url>
-	<spring-form:form action="${myaction}" method="post"
-		modelAttribute="user">
+	<spring-form:form action="${myaction}" method="post" modelAttribute="user">
 		<spring-form:input path=""/>
 		
 	</spring-form:form>

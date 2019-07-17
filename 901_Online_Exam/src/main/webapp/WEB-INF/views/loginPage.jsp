@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  
 
-<title>User Login Page</title>
+<title>Login Page</title>
 <style type="text/css">
 .error {
 	color: red;
@@ -25,6 +25,7 @@
 	<h1>User Login Page</h1>
 	<hr>
 	<h3>${msg}</h3>
+	<h3>${error}</h3>
 	<hr>
 	<div>
 		<%@ taglib prefix="spring-form"
