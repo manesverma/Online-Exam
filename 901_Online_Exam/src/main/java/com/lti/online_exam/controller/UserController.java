@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.online_exam.exception.ExamException;
-import com.lti.online_exam.model.Address;
+import com.lti.online_exam.model.Login;
 import com.lti.online_exam.model.User;
+import com.lti.online_exam.service.ILoginService;
 import com.lti.online_exam.service.IUserService;
 
 
@@ -21,6 +22,9 @@ import com.lti.online_exam.service.IUserService;
 public class UserController {
 		@Autowired
 		private IUserService userService;
+		
+		@Autowired
+		private ILoginService loginService;
 		
 		@RequestMapping(value="/addUserForm")
 		public ModelAndView showAddUserForm() {
@@ -36,15 +40,20 @@ public class UserController {
 									@Validated User user,
 									BindingResult bindingResult, 
 									Model model) throws ExamException {
-			String viewName="redirect:home";
-			Address userAddress = new Address("sector-50", "Noida", "UP", "India", user);
-			user.setUserAddress(userAddress);
+			String viewName="home";
+			/*Address userAddress = new Address("sector-50", "Noida", "UP", "India", user);
+			user.setUserAddress(userAddress);*/
 			if(bindingResult.hasErrors()) {//validations
 				model.addAttribute("msg", "Adding User Failed!");
 				model.addAttribute("user", new User());
 				viewName="redirect:addUserForm";
 			}
+			Login login = new Login();
+			login.setLoginRole("user");
+			login.setloginUserEmail(user.getUserEmail());
+			login.setLoginPassword(user.getUserPassword());
 			userService.addUser(user);
+			loginService.addLogin(login);
 			model.addAttribute("user",user);
 			return viewName; 
 		}

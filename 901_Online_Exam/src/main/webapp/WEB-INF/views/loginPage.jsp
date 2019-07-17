@@ -30,7 +30,7 @@
 	<div>
 		<%@ taglib prefix="spring-form"
 			uri="http://www.springframework.org/tags/form"%>
-		<c:url var="myaction" value="/login/checkLogin"></c:url>
+		<c:url var="myaction" value="checkLogin"></c:url>
 		<spring-form:form action="${myaction}" method="post"
 			modelAttribute="loginObj">
 	Enter Role:<spring-form:select path="loginRole" >
@@ -42,10 +42,10 @@
 			<!-- login.setUsername -->
 			<spring-form:errors path="loginRole" cssClass="error"></spring-form:errors>
 			
-	Enter Username:<spring-form:input path="loginUsername" />
+	Enter User Email:<spring-form:input path="loginUserEmail" />
 			<br />
 			<!-- login.setUsername -->
-			<spring-form:errors path="loginUsername" cssClass="error"></spring-form:errors>
+			<spring-form:errors path="loginUserEmail" cssClass="error"></spring-form:errors>
 	
 	Enter Password :<spring-form:input path="loginPassword" />
 			<br />

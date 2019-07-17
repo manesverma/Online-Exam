@@ -1,7 +1,5 @@
 package com.lti.online_exam.controller;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.online_exam.exception.ExamException;
 import com.lti.online_exam.model.Login;
+import com.lti.online_exam.service.ILoginService;
 import com.lti.online_exam.service.IUserService;
 
 @Controller
@@ -21,6 +20,9 @@ import com.lti.online_exam.service.IUserService;
 public class LoginController {
 	@Autowired
 	IUserService userService;
+	
+	@Autowired
+	ILoginService loginService;
 	
 	@RequestMapping(value="/showLogin",method=RequestMethod.GET)
 	public ModelAndView getLoginPage() {
@@ -32,33 +34,44 @@ public class LoginController {
 	
 	
 	@RequestMapping(value="/checkLogin",method=RequestMethod.POST)
-	public String checkLogin(
+	public ModelAndView checkLogin(
 			@ModelAttribute(value="loginObj") @Validated Login loginObj,
-			BindingResult bindingResult, Model model) throws ExamException {
+			BindingResult bindingResult, ModelAndView model) throws ExamException {
 		String viewName="";
 		if(bindingResult.hasErrors()) {//validations
-			model.addAttribute("msg", "Login Failed!");
-			model.addAttribute("loginObj", new Login());
+			model.addObject("msg", "Login Failed!");
+			model.addObject("loginObj", new Login());
 			viewName="redirect:showLogin";
+			model.setViewName(viewName);
 			//prefix redirect is used to redirect from one controller method to the another method
 		}
 		if(userService.authenticateUser(loginObj)) {
-			model.addAttribute("loginObj", loginObj);
-			model.addAttribute("msg", "Login Successful!");
+			model.addObject("loginObj", loginObj);
+			model.addObject("msg", "Login Successful!");
 			viewName="adminFrontPage";
+			model.setViewName(viewName);
 		}else {
-			model.addAttribute("loginObj", new Login());
-			model.addAttribute("msg", "Login Failed Invalid Credentials!");
-			model.addAttribute("error", "Login Failed Invalid Credentials!");
+			model.addObject("loginObj", new Login());
+			model.addObject("msg", "Login Failed Invalid Credentials!");
+			model.addObject("error", "Login Failed Invalid Credentials!");
 			viewName="redirect:showLogin";
+			model.setViewName(viewName);
 		}
-		return viewName;		
+		return model;		
 	}
-	@RequestMapping(value="/forgotPassword",method=RequestMethod.POST)
-	public String forgotPasswordPage(Model model) {
-			model.addAttribute("msg", "Here you can reset your password");
-			model.addAttribute("today",LocalDate.now());
-		return "forgotPassword";
+	@RequestMapping(value="/forgotPassword")
+	public String forgotPasswordPage() throws ExamException {
+		return "forgotPasswordPage";
+	}
+	
+	@RequestMapping(value="/forgotPasswordSendEmail")
+	public String forgotPasswordPage(String forgotPassword, Model model) throws ExamException {
+		if(loginService.forgotPassword(forgotPassword)) {
+			
+			return "loginPage";
+		}		
+		else
+			return "forgotPasswordPage";
 	}
 }
 
