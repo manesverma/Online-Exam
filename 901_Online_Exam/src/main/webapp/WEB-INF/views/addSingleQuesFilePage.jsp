@@ -8,7 +8,7 @@
   <%@ taglib prefix="spring-form" uri="http://www.springframework.org/tags/form"%>
 <a class="btn btn-default" href="${pageContext.request.contextPath}/home"> Logout</a><br>
 
-<br>Select a Subject:
+<%--<br>Select a Subject:
 <spring-form:select path="questionSubject" >
 					<spring-form:option value="NONE" label="---SELECT---"/>
 					<spring-form:option value="Java"/>
@@ -19,6 +19,7 @@
 					<spring-form:option value="C#/.Net"/>
 				</spring-form:select>
 		<br>
+		 --%>
 <br>Upload a Question File:
 <br>Submit
 

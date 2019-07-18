@@ -1,5 +1,7 @@
 package com.lti.online_exam.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,9 +22,20 @@ public class QuestionService implements IQuestionService {
 	}
 
 	@Override
-	public Question removeQuestion(Question question) throws ExamException {
+	@Transactional
+	public Question getQuestionById(Integer questionId) throws ExamException {
 		// TODO Auto-generated method stub
-		return null;
+		return questionDao.getQuestionById(questionId);
 	}
-
+	@Override
+	@Transactional
+	public Question removeQuestion(Integer questionId) throws ExamException {
+		return questionDao.removeQuestion(questionId);
+	}
+	@Override
+	@Transactional
+	public List<Question> getQuestionList() throws ExamException {
+		// TODO Auto-generated method stub
+		return questionDao.getQuestionList();
+}
 }

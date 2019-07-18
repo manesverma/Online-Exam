@@ -8,6 +8,7 @@
 
 <h1>${title }</h1>
 
+<h1>${msg}</h1>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring-form"
 	uri="http://www.springframework.org/tags/form"%>
@@ -36,7 +37,7 @@
 		<br>
 		<spring-form:errors path="questionSubject" cssClass="error"></spring-form:errors>
 
-		<br>Upload a Question:
+		<br>Enter Question :
 <spring-form:input path="questionDesc" />
 		<br>
 		<spring-form:errors path="questionDesc" cssClass="error"></spring-form:errors>
@@ -66,6 +67,10 @@
 		<br>
 		<spring-form:errors path="correctOption" cssClass="error"></spring-form:errors>
 
+		<br>Enter the question level:
+<spring-form:input path="questionLevel" />
+		<br>
+		<spring-form:errors path="questionLevel" cssClass="error"></spring-form:errors>
 		<br>
 		<input type="submit" value="Add Question" />
 
