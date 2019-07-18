@@ -22,7 +22,7 @@ public class Login implements Serializable{
 	
 	@Column(name="Login_Username")
 	@NotNull(message="username is required")
-	private String loginUsername;
+	private String loginUserEmail;
 	
 	@Column(name="Login_Password")
 	@NotNull(message="password is required")
@@ -35,19 +35,19 @@ public class Login implements Serializable{
 	public Login() {
 	}
 
-	public Login(String loginUsername, String loginPassword, String loginRole) {
+	public Login(String loginUserEmail, String loginPassword, String loginRole) {
 		super();
-		this.loginUsername = loginUsername;
+		this.loginUserEmail = loginUserEmail;
 		this.loginPassword = loginPassword;
 		this.loginRole = loginRole;
 	}
 
-	public String getLoginUsername() {
-		return loginUsername;
+	public String getloginUserEmail() {
+		return loginUserEmail;
 	}
 
-	public void setLoginUsername(String loginUsername) {
-		this.loginUsername = loginUsername;
+	public void setloginUserEmail(String loginUserEmail) {
+		this.loginUserEmail = loginUserEmail;
 	}
 
 	public String getLoginPassword() {
@@ -65,6 +65,11 @@ public class Login implements Serializable{
 	public void setLoginRole(String loginRole) {
 		this.loginRole = loginRole;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Login [loginId=" + loginId + ", loginUserEmail=" + loginUserEmail + ", loginPassword=" + loginPassword
+				+ ", loginRole=" + loginRole + "]";
+	}
 	
 }

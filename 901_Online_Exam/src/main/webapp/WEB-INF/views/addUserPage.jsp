@@ -36,13 +36,21 @@
 		<br />
 		<spring-form:errors path="userMobile" cssClass="error"></spring-form:errors>
 		
+	Enter Street :<spring-form:input path="userStreet" />
+		<br />
+		<spring-form:errors path="userStreet" cssClass="error"></spring-form:errors>
+	
+	Enter City :<spring-form:input path="userCity" />
+		<br />
+		<spring-form:errors path="userCity" cssClass="error"></spring-form:errors>
+	
 	Enter State :<spring-form:input path="userState" />
 		<br />
 		<spring-form:errors path="userState" cssClass="error"></spring-form:errors>
 
-     Enter City :<spring-form:input path="userCity" />
+     Enter Country :<spring-form:input path="userCountry" />
 		<br />
-		<spring-form:errors path="userCity" cssClass="error"></spring-form:errors>
+		<spring-form:errors path="userCountry" cssClass="error"></spring-form:errors>
 	
     Enter Password:<spring-form:password path="userPassword" />
         <br/>

@@ -14,17 +14,17 @@ public class Address {
 	private Long addressId;
 	//1>We made sure to create an employeeId field 
 	//as well as an employee object
-	@Column(name="street")
-	private String street;
+	@Column(name="User_Street")
+	private String userStreet;
 
-	@Column(name="city")
-	private String city;
+	@Column(name="User_City")
+	private String userCity;
 
-	@Column(name="state")
-	private String state;
+	@Column(name="User_State")
+	private String userState;
 
-	@Column(name="country")
-	private String country;
+	@Column(name="User_Country")
+	private String userCountry;
 	
 	@OneToOne(targetEntity=User.class)  
 	private User user;
@@ -32,53 +32,69 @@ public class Address {
 	public Address() {
 		
 	}
-	public Address(String street, String city, String state, String country, User user) {
+
+	public Address(String userStreet, String userCity, String userState, String userCountry, User user) {
 		super();
-		this.street = street;
-		this.city = city;
-		this.state = state;
-		this.country = country;
+		this.userStreet = userStreet;
+		this.userCity = userCity;
+		this.userState = userState;
+		this.userCountry = userCountry;
 		this.user = user;
 	}
+
 	public Long getAddressId() {
 		return addressId;
 	}
+
 	public void setAddressId(Long addressId) {
 		this.addressId = addressId;
 	}
-	public String getStreet() {
-		return street;
+
+	public String getUserStreet() {
+		return userStreet;
 	}
-	public void setStreet(String street) {
-		this.street = street;
+
+	public void setUserStreet(String userStreet) {
+		this.userStreet = userStreet;
 	}
-	public String getCity() {
-		return city;
+
+	public String getUserCity() {
+		return userCity;
 	}
-	public void setCity(String city) {
-		this.city = city;
+
+	public void setUserCity(String userCity) {
+		this.userCity = userCity;
 	}
-	public String getState() {
-		return state;
+
+	public String getUserState() {
+		return userState;
 	}
-	public void setState(String state) {
-		this.state = state;
+
+	public void setUserState(String userState) {
+		this.userState = userState;
 	}
-	public String getCountry() {
-		return country;
+
+	public String getUserCountry() {
+		return userCountry;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+
+	public void setUserCountry(String userCountry) {
+		this.userCountry = userCountry;
 	}
+
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	@Override
 	public String toString() {
-		return "Address [addressId=" + addressId + ", street=" + street + ", city=" + city + ", state=" + state
-				+ ", country=" + country + ", user=" + user + "]";
+		return "Address [addressId=" + addressId + ", userStreet=" + userStreet + ", userCity=" + userCity
+				+ ", userState=" + userState + ", userCountry=" + userCountry + ", user=" + user + "]";
 	}
+	
+	
 }

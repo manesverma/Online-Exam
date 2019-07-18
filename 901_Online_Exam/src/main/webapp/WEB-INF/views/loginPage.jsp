@@ -28,24 +28,24 @@
 	<h3>${error}</h3>
 	<hr>
 	<div>
-		<%@ taglib prefix="spring-form"
+		<%@ taglib prefix="spring-form" 
 			uri="http://www.springframework.org/tags/form"%>
 		<c:url var="myaction" value="/login/checkLogin"></c:url>
 		<spring-form:form action="${myaction}" method="post"
 			modelAttribute="loginObj">
 	Enter Role:<spring-form:select path="loginRole" >
 					<spring-form:option value="NONE" label="---SELECT---"></spring-form:option>
-					<spring-form:option value="USER"/>
-					<spring-form:option value="ADMIN"/>
+					<spring-form:option value="user"/>
+					<spring-form:option value="admin"/>
 				</spring-form:select>
 			<br />
 			<!-- login.setUsername -->
 			<spring-form:errors path="loginRole" cssClass="error"></spring-form:errors>
 			
-	Enter Username:<spring-form:input path="loginUsername" />
+	Enter User Email:<spring-form:input path="loginUserEmail" />
 			<br />
 			<!-- login.setUsername -->
-			<spring-form:errors path="loginUsername" cssClass="error"></spring-form:errors>
+			<spring-form:errors path="loginUserEmail" cssClass="error"></spring-form:errors>
 	
 	Enter Password :<spring-form:input path="loginPassword" />
 			<br />
