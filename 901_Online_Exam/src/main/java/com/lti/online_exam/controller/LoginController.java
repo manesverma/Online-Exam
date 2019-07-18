@@ -62,7 +62,7 @@ public class LoginController {
 		}else {
 			model.addObject("loginObj", new Login());
 			model.addObject("msg", "Login Failed Invalid Credentials!");
-			model.addObject("error", "Login Failed Invalid Credentials!");
+			model.addObject("error", "Login Failed Invalid Credentials!"); 
 			viewName="redirect:showLogin";
 			model.setViewName(viewName);
 		}		
