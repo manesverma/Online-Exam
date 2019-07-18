@@ -54,11 +54,18 @@ public class ExamController {
 	public ModelAndView showPhpPage() {
 		ModelAndView mv = new ModelAndView();
 		//return model and view
-		mv.addObject("title", "PHPExam Page");
+		mv.addObject("title", "PHP Exam Page");
 		mv.setViewName( "examPage");
 		return mv;//view name which will be returned to dispacherServlet
 	}
-
+	@RequestMapping(value="/c#")
+	public ModelAndView showCHashPage() {
+		ModelAndView mv = new ModelAndView();
+		//return model and view
+		mv.addObject("title", "C#/.Net Exam Page");
+		mv.setViewName( "examPage");
+		return mv;//view name which will be returned to dispacherServlet
+	}
 
 
 }

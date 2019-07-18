@@ -3,12 +3,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  
-<h1>hi, ${msg }</h1><hr>
+<h1>Hi, ${msg }</h1><hr>
 <h3>Today is : ${today }</h3><hr>
 <a class="btn btn-default" href="${pageContext.request.contextPath}/home"> Logout</a> 
-| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/java">java</a> 
-| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/sql">sql</a>
-| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/python">python</a>
+| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/java">Java</a> 
+| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/sql">SQL</a>
+| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/python">Python</a>
 <!-- link to the controller which will show the page -->
-| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/c">c/c++</a> 
-| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/php">php</a>
+| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/c">C / C++</a> 
+| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/php">PHP</a>
+| <a class="btn btn-info" href="${pageContext.request.contextPath}/exam/C#">C# / .Net</a>
