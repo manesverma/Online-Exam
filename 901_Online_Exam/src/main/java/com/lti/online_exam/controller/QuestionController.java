@@ -57,26 +57,23 @@ public class QuestionController {
 		return mv;//view name which will be returned to dispacherServlet
 	}
 	
-	/*@RequestMapping(value="/removeQuestion/{questionId}")
-    public String removeQuestion(@PathVariable("questionId") Integer questionId) throws ExamException{
+	@RequestMapping(value="/removeQuestion/{questionId}",method = RequestMethod.GET)
+    public String removeQuestion(@PathVariable("questionId") Integer questionId,Model model) throws ExamException{
         this.questionService.removeQuestion(questionId);
-        return "redirect:/question/removeQuesPage";
-    }*/
+        model.addAttribute("question", new Question());
+        List<Question> questionList=questionService.getQuestionList();
+        model.addAttribute("questionList",questionList);
+        return "removeQuesPage";
+    }
 	/*@RequestMapping(value="/removeQuestion/{questionId}",method = RequestMethod.GET)
     public String removeQuestion(@PathVariable("questionId") Integer questionId) throws ExamException{
         this.questionService.removeQuestion(questionId);
-        List<Question> questionList=
-				questionService.getQuestionList();
-		
-		questionList.forEach((data)->System.out.println(data)); 
-		model.addAttribute("questionList",questionList);
-        return "redirect:/question/removeQuesPage";
+        return "removeQuesPage";
     }*/
 	@RequestMapping(value = "/removeQuestion",method = RequestMethod.GET)
 	public String removeQuesPage(Model model) throws ExamException {
 		model.addAttribute("question", new Question());
-		List<Question> questionList=
-				questionService.getQuestionList();
+		List<Question> questionList=questionService.getQuestionList();
 		
 		//questionList.forEach((data)->System.out.println(data)); 
 		model.addAttribute("questionList",questionList);

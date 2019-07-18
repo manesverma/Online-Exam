@@ -35,7 +35,7 @@
 	<c:if test="${!empty questionList}">
 		<table border="1">
 			<tr>
-				<!-- <th>Question Id</th> -->
+				 <th>Question Id</th> 
 				<th>Question Desc</th>
 				<th>Question Subject</th>
 				<th>Option First</th>
@@ -47,7 +47,7 @@
 			</tr>
 			<c:forEach items="${questionList}" var="question">
 				<tr>
-					<%-- <td>${question.questionId}</td> --%>
+					<td>${question.questionId}</td>
 					<td>${question.questionDesc}</td>
 					<td>${question.questionSubject }</td>
 					<td>${question.optionFirst}</td>
@@ -56,7 +56,8 @@
 					<td>${question.optionFourth }</td>
 					<td>${question.correctOption }</td>
 					<td>${question.questionLevel }</td>
-					<td>
+					<td><a
+						href="<c:url value='/question/removeQuestion/${question.questionId}' />">Delete</a></td>
 					</tr>
 			</c:forEach>
 		</table>
