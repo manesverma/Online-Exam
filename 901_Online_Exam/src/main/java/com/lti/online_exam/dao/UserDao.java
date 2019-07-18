@@ -29,11 +29,12 @@ public class UserDao implements IUserDao {
 
 	@Override
 	public boolean authenticateUser(Login login) throws ExamException {
-		/*if(login.getloginUserEmail().equals("admin")&&login.getLoginPassword().equals("admin")) {
+		if( (login.getloginUserEmail().equals("admin")&&login.getLoginPassword().equals("admin")) || 
+		(login.getloginUserEmail().equals("user")&&login.getLoginPassword().equals("user")) ){
 			return true;
 		}
-		return false;*/
-		System.out.println("\n\n\n"+login+"\n\n\n");
+		return false;
+		/*System.out.println("\n\n\n"+login+"\n\n\n" );
 		
 		CriteriaBuilder criteriaBuilder = enitityManager.getCriteriaBuilder();
 		//CriteriaQuery criteria = criteriaBuilder.createQuery(Login.class);
@@ -51,7 +52,7 @@ public class UserDao implements IUserDao {
 			e.printStackTrace();
 			return false;
 		}
-		
+		*/
 		
 	}
 

@@ -1,4 +1,4 @@
-package com.lti.online_exam.controller;
+ package com.lti.online_exam.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +19,10 @@ import com.lti.online_exam.service.IUserService;
 @RequestMapping(value="/login")
 public class LoginController {
 	@Autowired
-	IUserService userService;
+	private IUserService userService;
 	
 	@Autowired
-	ILoginService loginService;
+	private ILoginService loginService;
 	
 	@RequestMapping(value="/showLogin",method=RequestMethod.GET)
 	public ModelAndView getLoginPage() {
@@ -46,18 +46,27 @@ public class LoginController {
 			//prefix redirect is used to redirect from one controller method to the another method
 		}
 		if(userService.authenticateUser(loginObj)) {
-			model.addObject("loginObj", loginObj);
-			model.addObject("msg", "Login Successful!");
-			viewName="adminFrontPage";
-			model.setViewName(viewName);
+			if (loginObj.getLoginRole().equals("admin")) {
+				model.addObject("loginObj", loginObj);
+				model.addObject("msg", "Login Successful!");
+				viewName = "adminFrontPage";
+				model.setViewName(viewName);
+			}
+			if (loginObj.getLoginRole().equals("user")) {
+				model.addObject("loginObj", loginObj);
+				model.addObject("msg", "Login Successful!");
+				viewName = "examPage";
+				model.setViewName(viewName);
+			}
+			
 		}else {
 			model.addObject("loginObj", new Login());
 			model.addObject("msg", "Login Failed Invalid Credentials!");
 			model.addObject("error", "Login Failed Invalid Credentials!");
 			viewName="redirect:showLogin";
 			model.setViewName(viewName);
-		}
-		return model;		
+		}		
+		return model;
 	}
 	@RequestMapping(value="/forgotPassword")
 	public String forgotPasswordPage() throws ExamException {
