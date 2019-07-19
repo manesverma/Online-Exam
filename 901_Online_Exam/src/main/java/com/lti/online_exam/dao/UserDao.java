@@ -19,7 +19,7 @@ public class UserDao implements IUserDao {
 
 	@PersistenceContext
 	private EntityManager enitityManager;
-	
+
 	@Override
 	public User addUser(User user) throws ExamException {
 		// TODO Auto-generated method stub
@@ -29,20 +29,19 @@ public class UserDao implements IUserDao {
 
 	@Override
 	public boolean authenticateUser(Login login) throws ExamException {
-		if( (login.getloginUserEmail().equals("admin")&&login.getLoginPassword().equals("admin")) || 
-		(login.getloginUserEmail().equals("user")&&login.getLoginPassword().equals("user")) ){
+		if( (login.getloginUserEmail().equals("admin")&&login.getLoginPassword().equals("admin")) || (login.getloginUserEmail().equals("user")&&login.getLoginPassword().equals("user")) ){
 			return true;
 		}
 		return false;
-		/*System.out.println("\n\n\n"+login+"\n\n\n" );
-		
+	}			
+	/*System.out.println("\n\n\n"+login+"\n\n\n" );
 		CriteriaBuilder criteriaBuilder = enitityManager.getCriteriaBuilder();
 		//CriteriaQuery criteria = criteriaBuilder.createQuery(Login.class);
 		CriteriaQuery<Tuple> criteria = criteriaBuilder.createTupleQuery();
 		Root<Login> loginRoot = criteria.from(Login.class);
 		criteria.multiselect(loginRoot.get("loginUserEmail"),loginRoot.get("loginPassword"),loginRoot.get("loginRole"));
 		criteria.where(criteriaBuilder.equal(loginRoot.get("loginRole"),login.getLoginRole()));
-		
+
 		Tuple result;
 		try {
 			result = enitityManager.createQuery(criteria).getSingleResult();
@@ -51,9 +50,7 @@ public class UserDao implements IUserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
+<<<<<<< HEAD
 		}
-		*/
-		
-	}
-
+	 */
 }

@@ -31,13 +31,11 @@
 		<%@ taglib prefix="spring-form" 
 			uri="http://www.springframework.org/tags/form"%>
 		<c:url var="myaction" value="/login/checkLogin"></c:url>
-		<spring-form:form action="${myaction}" method="post"
-			modelAttribute="loginObj">
+		<spring-form:form action="${myaction}" method="post" modelAttribute="loginObj">
 	Enter Role:<spring-form:select path="loginRole" >
-					<spring-form:option value="NONE" label="---SELECT---"></spring-form:option>
-					<spring-form:option value="user"/>
-					<spring-form:option value="admin"/>
-				</spring-form:select>
+						<spring-form:option value="user"/>
+						<spring-form:option value="admin"/>
+					</spring-form:select>
 			<br />
 			<!-- login.setUsername -->
 			<spring-form:errors path="loginRole" cssClass="error"></spring-form:errors>

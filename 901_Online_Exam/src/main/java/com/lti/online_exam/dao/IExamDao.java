@@ -7,4 +7,5 @@ import com.lti.online_exam.model.Exam;
 
 	public interface IExamDao {
 		public List<Exam> getExamList()throws ExamException;
+		public List<Exam> getSubjectExamList() throws ExamException; 
 } 

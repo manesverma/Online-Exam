@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Question_Tb")
+@Table(name="Question_Tb2")
 public class Question {
 	
 	@Id
@@ -62,6 +62,13 @@ public class Question {
 		this.questionLevel = questionLevel;
 	}
 
+
+	public Integer getQuestionId() {
+		return questionId;
+	}
+    public void setQuestionId(Integer questionId) {
+		this.questionId = questionId;
+	}
 
 	public String getQuestionSubject() {
 		return questionSubject;

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.lti.online_exam.dao.IExamDao;
 import com.lti.online_exam.model.Exam;
 import com.lti.online_exam.exception.ExamException;
-
 @Service
 public class ExamService implements IExamService{
 	@Autowired
@@ -19,6 +18,12 @@ public class ExamService implements IExamService{
 	@Transactional
 	public List<Exam> getExamList() throws ExamException {
 		return null; 
+	}
+	
+	@Override
+	@Transactional
+	public List<Exam> getSubjectExamList() throws ExamException {
+		return null;
 	}
 
 }

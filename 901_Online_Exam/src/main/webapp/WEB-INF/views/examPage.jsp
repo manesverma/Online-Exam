@@ -6,5 +6,5 @@
 
 <h1>hi, ${msg }</h1><hr>
 <h3>All the best !!</h3><hr>
-<a class="btn btn-default" href="startExam"> Start Exam</a> 
+<a class="btn btn-default" href="${pageContext.request.contextPath}/exam/examStart"> Start Exam</a> 
 <a class="btn btn-default" href="logout"> Logout</a> 

@@ -15,6 +15,7 @@ import com.lti.online_exam.model.Login;
 import com.lti.online_exam.service.ILoginService;
 import com.lti.online_exam.service.IUserService;
 
+
 @Controller
 @RequestMapping(value="/login")
 public class LoginController {
@@ -55,7 +56,7 @@ public class LoginController {
 			if (loginObj.getLoginRole().equals("user")) {
 				model.addObject("loginObj", loginObj);
 				model.addObject("msg", "Login Successful!");
-				viewName = "examPage";
+				viewName = "examFrontPage";
 				model.setViewName(viewName);
 			}
 			
@@ -74,9 +75,10 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/forgotPasswordSendEmail")
-	public String forgotPasswordPage(String forgotPassword, Model model) throws ExamException {
+	public String forgotPasswordPage(String forgotPassword,Model model) throws ExamException {
+		
 		if(loginService.forgotPassword(forgotPassword)) {
-			
+			System.out.println("\n\n\n"+forgotPassword+"\n\n\n");
 			return "loginPage";
 		}		
 		else
