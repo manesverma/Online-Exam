@@ -91,7 +91,6 @@ public class ExamController {
         model.addAttribute("questionList",questionList);
 		return "examStartPage";
 	}
-
 }
 
 

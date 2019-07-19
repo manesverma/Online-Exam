@@ -23,9 +23,9 @@ public class QuestionDao implements IQuestionDao {
 	@Autowired
 	private HttpSession httpSession;
 	
-	@Autowired
+	/*@Autowired
 	private Random random;
-	@Override
+	*/@Override
 	public Question addQuestion(Question question) throws ExamException {
 		// TODO Auto-generated method stub
 		System.out.println(question);
@@ -53,13 +53,11 @@ public class QuestionDao implements IQuestionDao {
 	public List<Question> getSubjectQuestionList() throws ExamException {
 		String subjectName = (String) httpSession.getAttribute("subjectName");
 		@SuppressWarnings("unchecked")
-		List<Question> quesList = entityManager.createQuery("from Question where questionSubject=:subjectName").setParameter("subjectName", subjectName).getResultList();
+		List<Question> quesList = entityManager.createQuery("from Question "
+				+ "where questionSubject=:subjectName").setParameter("subjectName", subjectName).getResultList();
 		//System.out.println("\n\nTHe subject nahi is " + subjectName+"\n\n\n");
-		/*Collections.shuffle(quesList);
-		return quesList;*/
+		Collections.shuffle(quesList);
+		return quesList;
 		//return quesList.get(random.nextInt(quesList.size()));
-		
-		
 	}
-	
 }
